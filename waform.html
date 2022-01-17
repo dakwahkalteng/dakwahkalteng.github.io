@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Membuat Formulir Order Checkout Ke Pesan WhatsApp</title>
+      <title>Kontak WhatsApp Form</title>
       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -9,39 +9,45 @@
 <body>
     <div class="container">
         <div class="col-lg-6 col-lg-offset-3">
-            <h4>Membuat Formulir Order Checkout Ke Pesan WhatsApp</h4>
+            <h4>Kontak WhatsApp Form</h4>
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    Checkout Ke WhatsApp
+                    Silahkan kontak saya dengan mengisi data Anda berikut
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" name="name" class="form-control" placeholder="Nama" id="name">
+                        <label>Nama Lengkap</label>
+                        <input type="text" name="name" class="form-control" placeholder="Nama Anda" id="name">
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email" id="email">
+                        <label>Email Aktif</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email Anda" id="email">
                     </div>
                     <div class="form-group">
                         <label>Nomor Kontak / WhatsApp</label>
                         <input type="text" name="phone" class="form-control" placeholder="Nomor Kontak / WhatsApp" id="phone">
                     </div>
                     <div class="form-group">
-                        <label>Pilih Produk</label>
-                        <select name="product" class="form-control" id="product">
-                            <option value="">-- Pilih Produk --</option>
-                            <option value="produk_1">Produk 1</option>
-                            <option value="produk_2">Produk 2</option>
-                            <option value="produk_3">Produk 3</option>
+                        <label>Panggilan</label>
+                        <select name="panggilan" class="form-control" id="panggilan">
+                            <option value="">-- Panggilan Anda --</option>
+                            <option value="produk_1">Bapak</option>
+                            <option value="produk_2">Ibu</option>
+                            <option value="produk_3">Mas</option>
+                            <option value="produk_3">Mbak</option>
+                            <option value="produk_3">Abang</option>
+                            <option value="produk_3">Kakak</option>
+                            <option value="produk_3">Adek</option>
+                            <option value="produk_3">Om</option>
+                            <option value="produk_3">Tante</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Catatan</label>
-                        <textarea name="description" class="form-control" rows="3" id="description"></textarea>
+                        <label>Pesan</label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Tulis pesan Anda di sini" id="description"></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success send">Pesan via WhatsApp</button>
+                        <button class="btn btn-success send">Kirim via WhatsApp</button>
                     </div>
  
                     <div id="text-info"></div>
@@ -56,12 +62,12 @@
     var input_name          = $("#name").val(),
         input_email         = $("#email").val(),
         input_phone         = $("#phone").val(),
-        input_product       = $("#product").val(),
+        input_panggilan     = $("#panggilan").val(),
         input_description   = $("#description").val();
  
     /* Pengaturan Whatsapp */
     var walink      = 'https://web.whatsapp.com/send',
-        phone       = '6285651039553',
+        phone       = '62816237945',
         text        = 'Halo saya ingin memesan ',
         text_yes    = 'Pesanan Anda berhasil terkirim.',
         text_no     = 'Isilah formulir terlebih dahulu.';
@@ -71,13 +77,13 @@
         var walink = 'whatsapp://send';
     }
  
-    if(input_name != "" && input_phone != "" && input_product != ""){
+    if(input_name != "" && input_phone != "" && input_panggilan != ""){
         /* Whatsapp URL */
         var checkout_whatsapp = walink + '?phone=' + phone + '&text=' + text + '%0A%0A' +
             '*Nama* : ' + input_name + '%0A' +
             '*Alamat Email* : ' + input_email + '%0A' +
             '*Nomor Kontak / Whatsapp* : ' + input_phone + '%0A' +
-            '*Produk* : ' + input_product + '%0A' +
+            '*Produk* : ' + input_panggilan + '%0A' +
             '*Catatan* : ' + input_description + '%0A';
  
         /* Whatsapp Window Open */
