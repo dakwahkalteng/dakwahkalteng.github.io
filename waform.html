@@ -68,8 +68,8 @@
     /* Pengaturan Whatsapp */
     var walink      = 'https://web.whatsapp.com/send',
         phone       = '62816237945',
-        text        = 'Halo saya ingin memesan ',
-        text_yes    = 'Pesanan Anda berhasil terkirim.',
+        text        = 'Halo Avathur, perkenalkan ',
+        text_yes    = 'Pesan Anda berhasil terkirim.',
         text_no     = 'Isilah formulir terlebih dahulu.';
  
     /* Smartphone Support */
@@ -80,11 +80,13 @@
     if(input_name != "" && input_phone != "" && input_panggilan != ""){
         /* Whatsapp URL */
         var checkout_whatsapp = walink + '?phone=' + phone + '&text=' + text + '%0A%0A' +
-            '*Nama* : ' + input_name + '%0A' +
-            '*Alamat Email* : ' + input_email + '%0A' +
-            '*Nomor Kontak / Whatsapp* : ' + input_phone + '%0A' +
-            '*Produk* : ' + input_panggilan + '%0A' +
-            '*Catatan* : ' + input_description + '%0A';
+            '*Nama* : ' + input_panggilan + input_name + '%0A' +
+            '*Email* : ' + input_email + '%0A' +
+            '*No. WA* : ' + input_phone + '%0A' +
+            '%0A' +
+            '*Pesan* : ' + input_description + '%0A' +
+            '%0A' +
+            'Dikirim via https://avathur.github.io';
  
         /* Whatsapp Window Open */
         window.open(checkout_whatsapp,'_blank');
